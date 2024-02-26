@@ -73,8 +73,32 @@ void loop() {
           digitalWrite(relay2,LOW);
         }
 
+       float voltage = tempsen * (5.0/1023.0);
+       float temperature = voltage*100;
+
+      Serial.println("temperature = ");
+      Serial.print(temperature);
+
+      lcd.setCursor (0,0);
+      lcd.print(temperature);
+
+      if(flameval == 1){
+        if(temperature>45){
+          lcd.setCursor(0,1);
+          lcd.print("fire is begin" );
+
+          digitalWrite(buzzer1,HIGH)
+          delay(5000);
+        }
+      }
+      if(lpgas>550){
+        lcd.setCursor(0,2);
+        lcd.print("it is a gas leak");
+
+        digitalWrite(buzzer2 , HIGH);
+        delay(5000);
         
-      
+      }
   
   
 
