@@ -99,6 +99,17 @@ void loop() {
         delay(5000);
         
       }
+
+      if(airquality>280){
+
+        lcd.setCursor(0,3);
+        lcd.print("air quality is not good");
+        
+        digitalWrite(buzzer1,HIGH);
+        delay(2000);
+        digitalWrite(buzzer1,LOW);
+        
+        }
   
   
 
